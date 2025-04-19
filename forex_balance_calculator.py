@@ -1,5 +1,14 @@
 import streamlit as st
-import plotly.graph_objects as go
+import sys
+import subprocess
+
+# Try to import plotly, install if not available
+try:
+    import plotly.graph_objects as go
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "plotly"])
+    import plotly.graph_objects as go
+
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
