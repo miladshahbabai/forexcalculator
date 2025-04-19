@@ -219,7 +219,7 @@ with tab1:
         
         st.dataframe(display_df, use_container_width=True)
         
-        # Add download button for CSV - REMOVED
+        # Download button removed
         csv = df.to_csv(index=False).encode('utf-8')
         st.download_button(
             label="Download Data as CSV",
