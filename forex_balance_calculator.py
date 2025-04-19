@@ -203,7 +203,11 @@ if calculate_button:
     
     # Format the DataFrame for display
     display_df = df.copy()
-    display_df['Date'] = display_df['Date'].dt.strftime('%Y-%m-%d')
+    # Format date column safely
+    if pd.api.types.is_datetime64_any_dtype(display_df['Date']):
+        display_df['Date'] = display_df['Date'].dt.strftime('%Y-%m-%d')
+    else:
+        display_df['Date'] = pd.to_datetime(display_df['Date']).dt.strftime('%Y-%m-%d')
     display_df['Balance'] = display_df['Balance'].map('${:,.2f}'.format)
     display_df['Daily Profit'] = display_df['Daily Profit'].map('${:,.2f}'.format)
     display_df['Daily Profit %'] = display_df['Daily Profit %'].map('{:,.2f}%'.format)
