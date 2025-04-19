@@ -541,9 +541,4 @@ with tab2:
         st.dataframe(display_df, use_container_width=True)
         
         # Add download button for CSV
-        csv = realistic_df.to_csv(index=False).encode('utf-8')
-        st.download_button(
-            label="Download Realistic Data as CSV",
-            data=csv,
-            file_name=f"forex_realistic_projection_{datetime.now().strftime('%Y%m%d')}.csv",
-            mime="text/csv",
+        
