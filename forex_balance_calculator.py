@@ -250,8 +250,8 @@ with tab2:
         # Input for initial balance
         realistic_initial_balance = st.number_input("Initial Balance ($)", min_value=1.0, value=1000.0, step=100.0, key="real_balance")
         
-        # Input for win rate
-        win_rate = st.slider("Win Rate (%)", min_value=30, max_value=70, value=45, step=5, 
+        # Input for win rate - changed from slider to number_input
+        win_rate = st.number_input("Win Rate (%)", min_value=0, max_value=100, value=45, step=1, 
                             help="Percentage of profitable trades. Professional traders typically have 40-60% win rates.")
         
         # Input for risk per trade
@@ -262,8 +262,8 @@ with tab2:
         # Input for number of days
         realistic_days = st.number_input("Number of Days", min_value=1, max_value=365, value=30, step=1, key="real_days")
         
-        # Input for risk-reward ratio
-        risk_reward = st.slider("Risk-Reward Ratio", min_value=1.0, max_value=3.0, value=1.5, step=0.1,
+        # Input for risk-reward ratio - changed from slider to number_input
+        risk_reward = st.number_input("Risk-Reward Ratio", min_value=0.1, max_value=10.0, value=1.5, step=0.1,
                                help="Ratio of potential profit to potential loss. Higher values mean larger profits when winning.")
         
         # Option to exclude weekends
